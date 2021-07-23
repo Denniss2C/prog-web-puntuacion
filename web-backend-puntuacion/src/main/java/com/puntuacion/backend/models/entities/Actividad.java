@@ -1,5 +1,6 @@
 package com.puntuacion.backend.models.entities;
 
+import java.io.Serializable;
 import java.util.Calendar;
 
 import javax.persistence.Basic;
@@ -12,7 +13,9 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="actividades")
-public class Actividad {
+public class Actividad implements Serializable{
+	
+	private static final long serialVersionUID = 1L;
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -80,6 +83,8 @@ public class Actividad {
 	public void setPromedio(Float promedio) {
 		this.promedio = promedio;
 	}
+	
+	
 	
 	
 	
