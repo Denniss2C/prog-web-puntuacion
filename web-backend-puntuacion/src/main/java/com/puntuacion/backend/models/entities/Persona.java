@@ -4,15 +4,13 @@ import java.io.Serializable;
 
 import javax.persistence.Basic;
 import javax.persistence.Column;
-import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.MappedSuperclass;
 
-@Entity
-@Table(name="personas")
-public class Persona implements Serializable {
+@MappedSuperclass
+public abstract class Persona implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 
@@ -30,7 +28,13 @@ public class Persona implements Serializable {
 	
 	@Column(name="nacionalidad")
 	private String nacionalidad;
-
+	
+	@Column(name="edad")
+	private Integer edad;
+	
+	@Column(name="aka")
+	private String aka;
+	
 	public Persona() {
 		super();
 	}
@@ -72,5 +76,20 @@ public class Persona implements Serializable {
 		this.nacionalidad = nacionalidad;
 	}
 	
+	public Integer getEdad() {
+		return edad;
+	}
+
+	public void setEdad(Integer edad) {
+		this.edad = edad;
+	}
+
+	public String getAka() {
+		return aka;
+	}
+
+	public void setAka(String aka) {
+		this.aka = aka;
+	}
 	
 }

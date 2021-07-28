@@ -6,14 +6,18 @@ import java.util.Calendar;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="jueces")
-public class Juez implements Serializable {
+
+public class Juez extends Persona implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
@@ -28,6 +32,10 @@ public class Juez implements Serializable {
 	
 	@Column(name="desde")
 	private Calendar desde;
+	
+	@JoinColumn(name = "id_Calificacion", nullable = false)
+	@OneToOne(fetch = FetchType.LAZY)
+	private Calificacion calificacion;	
 
 	public Juez() {
 		super();

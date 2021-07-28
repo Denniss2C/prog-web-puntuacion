@@ -2,13 +2,16 @@ package com.puntuacion.backend.models.entities;
 
 import java.io.Serializable;
 import java.util.Calendar;
+import java.util.List;
 
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -34,6 +37,9 @@ public class Actividad implements Serializable{
 	
 	@Column(name="promedio")
 	private Float promedio;
+	
+	@OneToMany(mappedBy="actividad", fetch = FetchType.LAZY)	
+	private List<Calificacion> divisiones;
 
 	public Actividad() {
 		super();

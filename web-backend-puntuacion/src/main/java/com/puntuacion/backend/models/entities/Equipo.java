@@ -12,7 +12,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="equipos")
-public class Equipo implements Serializable {
+public class Equipo extends Persona implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
@@ -27,7 +27,7 @@ public class Equipo implements Serializable {
 	
 	@Column(name="integrantes")
 	private Integer integrantes;
-
+	
 	public Equipo() {
 		super();
 	}

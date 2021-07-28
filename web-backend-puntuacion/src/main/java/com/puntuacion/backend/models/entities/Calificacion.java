@@ -8,7 +8,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
 
 @Entity
 @Table(name="calificaciones")
@@ -27,6 +30,12 @@ public class Calificacion implements Serializable {
 	
 	@Column(name="observacion")
 	private String observacion;
+	
+	@JoinColumn(name="id_Actividad", referencedColumnName= "id_Actividad")
+	@ManyToOne
+	private Actividad actividad;
+	
+	
 
 	public Calificacion() {
 		super();
