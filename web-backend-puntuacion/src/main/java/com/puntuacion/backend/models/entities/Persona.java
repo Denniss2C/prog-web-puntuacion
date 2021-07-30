@@ -1,25 +1,12 @@
 package com.puntuacion.backend.models.entities;
 
-import java.io.Serializable;
-
-import javax.persistence.Basic;
 import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 
 @MappedSuperclass
-public abstract class Persona implements Serializable {
+public abstract class Persona {
 	
-	private static final long serialVersionUID = 1L;
 
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Basic(optional = false)
-	@Column(name="id_Persona")
-	private Integer idPersona;
-	
 	@Column(name="nombre")
 	private String nombre;
 	
@@ -35,22 +22,7 @@ public abstract class Persona implements Serializable {
 	@Column(name="aka")
 	private String aka;
 	
-	public Persona() {
-		super();
-	}
 	
-	public Persona(Integer idPersona) {
-		super();
-		this.idPersona = idPersona;
-	}
-
-	public Integer getIdPersona() {
-		return idPersona;
-	}
-
-	public void setIdPersona(Integer idPersona) {
-		this.idPersona = idPersona;
-	}
 
 	public String getNombre() {
 		return nombre;
