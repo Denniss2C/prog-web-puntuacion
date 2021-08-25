@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -27,6 +28,9 @@ public class Equipo extends Persona implements Serializable {
 	
 	@Column(name="integrantes")
 	private Integer integrantes;
+	
+	@OneToOne(mappedBy="equipo")
+	private Actividad actividad;
 	
 	public Equipo() {
 		super();

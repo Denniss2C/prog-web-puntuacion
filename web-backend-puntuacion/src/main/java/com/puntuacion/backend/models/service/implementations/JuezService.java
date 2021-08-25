@@ -8,8 +8,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.puntuacion.backend.models.entities.Juez;
-import com.puntuacion.backend.models.entities.Juez;
-import com.puntuacion.backend.models.repositories.IJuez;
 import com.puntuacion.backend.models.repositories.IJuez;
 import com.puntuacion.backend.models.service.interfaces.IJuezService;
 

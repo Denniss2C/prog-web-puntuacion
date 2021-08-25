@@ -5,11 +5,13 @@ import java.io.Serializable;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 
@@ -35,7 +37,9 @@ public class Calificacion implements Serializable {
 	@ManyToOne
 	private Actividad actividad;
 	
-	
+	@JoinColumn(name = "id_Juez", nullable = false)
+	@OneToOne(fetch = FetchType.LAZY)
+	private Juez juez;
 
 	public Calificacion() {
 		super();

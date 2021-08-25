@@ -11,7 +11,9 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -40,6 +42,10 @@ public class Actividad implements Serializable{
 	
 	@OneToMany(mappedBy="actividad", fetch = FetchType.LAZY)	
 	private List<Calificacion> divisiones;
+	
+	@JoinColumn(name="id_Equipo", nullable=false)
+	@OneToOne(fetch = FetchType.LAZY)
+	private Equipo equipo;
 
 	public Actividad() {
 		super();
